@@ -1,3 +1,5 @@
+'use client';
+
 import BeforeBtn from '@/components/BeforeBtn';
 import CharacterBox from '@/components/CharacterBox';
 import { useAuthContext } from '@/hooks/auth/useAuthContext';
@@ -9,7 +11,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import EditNoteIcon from '@mui/icons-material/EditNote';
 import { Box, Button, Grid, styled } from '@mui/material';
 import { useState } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
 import EditHabitDetailModal from './component/EditHabitDetailModal';

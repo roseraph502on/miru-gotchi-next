@@ -1,3 +1,5 @@
+'use client';
+
 import AddNewGoalButton from '@common/components/AddNewGoalButton';
 import CustomSwitch from '@common/components/CustomSwitch';
 import Loading from '@common/components/Loading';

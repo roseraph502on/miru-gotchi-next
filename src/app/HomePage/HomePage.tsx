@@ -1,11 +1,13 @@
-import CharacterBox from '@common/components/CharacterBox';
-import { useAuth } from '@hooks/auth/useAuth';
-import { useCompleteTodayLog } from '@hooks/useCompleteTodayLog';
-import { useGetAllCharacters } from '@hooks/useGetAllCharacters';
-import { useGetGoals } from '@hooks/useGetGoals';
+'use client';
+
+import CharacterBox from '@/components/CharacterBox';
+import { useAuth } from '@/hooks/auth/useAuth';
+import { useCompleteTodayLog } from '@/hooks/useCompleteTodayLog';
+import { useGetAllCharacters } from '@/hooks/useGetAllCharacters';
+import { useGetGoals } from '@/hooks/useGetGoals';
 import { FormGroup } from '@mui/material';
-import HomeHabitList from '@pages/HomePage/component/HomeHabitList';
-import { getTodayCompletedCount } from '@service/logService/getTodayCompletedCount';
+import HomeHabitList from './component/HomeHabitList';
+import { getTodayCompletedCount } from '@/service/logService/getTodayCompletedCount';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 

@@ -1,9 +1,11 @@
+'use client';
+
 import BeforeBtn from "@common/components/BeforeBtn"
 import { useGoalsFirestore } from "@hooks/useGoalsMutation"
 import ContentTitle from "@layout/common/ContentTitle"
 import { Box, Button, Grid, styled } from "@mui/material"
 import { useState } from "react"
-import { useNavigate } from "react-router"
+import { useRouter } from "next/navigation"
 
 import CharacterFormCont from "./component/CharacterFormCont"
 import GoalFormCpnt from "./component/GoalFormCpnt"

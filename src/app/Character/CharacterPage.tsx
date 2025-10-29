@@ -1,9 +1,11 @@
+'use client';
+
 import { useAuth } from '@hooks/auth/useAuth';
 import { useGetGoals } from '@hooks/useGetGoals';
 import ContentInner from '@layout/common/ContentInner';
 import { Box, Grid, styled, Tab, Tabs, Typography } from '@mui/material';
 import React, { useState } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 import { characterImageMap } from '../../constants/characterImages';
 
