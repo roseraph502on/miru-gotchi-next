@@ -1,7 +1,8 @@
+'use client';
+
 // import FavoriteIcon from '@mui/icons-material/Favorite';
 import styled from 'styled-components';
-import FullHeart from '../../assets/images/fullHeart.png';
-import emptyHeart from '../../assets/images/emptyHeart.png';
+import Image from 'next/image';
 
 interface lifeProps {
   failCount?: number;

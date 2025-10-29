@@ -1,14 +1,10 @@
+'use client';
+
 import LinearProgress from '@mui/material/LinearProgress';
 import styled from 'styled-components';
 
 import CharactersImage from './CharactersImage';
 import LifeIcon from './LifeIcon';
-import CatBackground from '../../assets/images/background/cat-background.png';
-import DogBackground from '../../assets/images/background/dog-background.png';
-import HamsterBackground from '../../assets/images/background/hamster-background.png';
-import RabbitBackground from '../../assets/images/background/rabbit-background.png';
-import TitBackground from '../../assets/images/background/tit-background.png';
-import { StaticImageData } from 'next/image';
 
 // import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 

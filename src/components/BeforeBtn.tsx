@@ -1,3 +1,5 @@
+'use client';
+
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import styled from 'styled-components';
 

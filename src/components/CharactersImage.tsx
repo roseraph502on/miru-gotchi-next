@@ -1,6 +1,8 @@
+'use client';
+
 import { styled } from "styled-components";
 
-import { characterImageMap } from "../../constants/characterImages";
+import { characterImageMap } from "@/constants/characterImages";
 
 import type { CharacterStatus } from "@models/character";
 
