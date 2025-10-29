@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import { useAuth } from '@hooks/auth/useAuth';
-import { useGetGoals } from '@hooks/useGetGoals';
-import ContentInner from '@layout/common/ContentInner';
-import { Box, Grid, styled, Tab, Tabs, Typography } from '@mui/material';
-import React, { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useAuth } from "@hooks/auth/useAuth";
+import { useGetGoals } from "@hooks/useGetGoals";
+import ContentInner from '@layout/ContentInner';
+import { Box, Grid, styled, Tab, Tabs, Typography } from "@mui/material";
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 
-import { characterImageMap } from '../../constants/characterImages';
+import { characterImageMap } from "../../constants/characterImages";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -29,10 +29,10 @@ function CustomTabPanel(props: TabPanelProps) {
       {value === index && (
         <Box
           sx={{
-            padding: { sm: '40px 35px', xs: '30px 23px' },
-            backgroundColor: '#5B93D5',
-            minHeight: '128px',
-            borderRadius: '0px 0 16px 16px',
+            padding: { sm: "40px 35px", xs: "30px 23px" },
+            backgroundColor: "#5B93D5",
+            minHeight: "128px",
+            borderRadius: "0px 0 16px 16px",
           }}
         >
           {children}
@@ -45,117 +45,117 @@ function CustomTabPanel(props: TabPanelProps) {
 function a11yProps(index: number) {
   return {
     id: `full-width-tab-${index}`,
-    'aria-controls': `full-width-tabpanel-${index}`,
+    "aria-controls": `full-width-tabpanel-${index}`,
   };
 }
 
-const CharacterPageContainer = styled('div')(({ theme }) => ({
-  display: 'flex',
-  flexDirection: 'column',
-  width: '100%',
-  height: '100%',
+const CharacterPageContainer = styled("div")(({ theme }) => ({
+  display: "flex",
+  flexDirection: "column",
+  width: "100%",
+  height: "100%",
   // background: '#F2F2F3',
-  padding: '4rem 0',
-  [theme.breakpoints.down('lg')]: {
-    padding: '2rem 0',
+  padding: "4rem 0",
+  [theme.breakpoints.down("lg")]: {
+    padding: "2rem 0",
   },
-  [theme.breakpoints.down('md')]: {
-    padding: '1rem 0',
+  [theme.breakpoints.down("md")]: {
+    padding: "1rem 0",
   },
-  '& .tabImgArea': {
-    display: 'flex',
-    justifyContent: 'center',
+  "& .tabImgArea": {
+    display: "flex",
+    justifyContent: "center",
   },
-  '& .tabImg': {
-    position: 'relative',
-    backgroundColor: 'white',
-    minWidth: '128px',
-    minHeight: '128px',
-    borderRadius: '12px',
-    overflow: 'hidden',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    '& > img': {
-      width: '80px',
-      height: '80px',
-      objectFit: 'contain',
+  "& .tabImg": {
+    position: "relative",
+    backgroundColor: "white",
+    minWidth: "128px",
+    minHeight: "128px",
+    borderRadius: "12px",
+    overflow: "hidden",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    "& > img": {
+      width: "80px",
+      height: "80px",
+      objectFit: "contain",
     },
   },
-  '@media (min-width:320px) and (max-width:720px)': {
-    '& .tabImgArea': {
-      width: 'calc(50% - 10px)',
+  "@media (min-width:320px) and (max-width:720px)": {
+    "& .tabImgArea": {
+      width: "calc(50% - 10px)",
     },
-    '& .tabImg': {
-      padding: '20px',
-      '& > img': {
-        width: '100%',
-        height: 'auto',
+    "& .tabImg": {
+      padding: "20px",
+      "& > img": {
+        width: "100%",
+        height: "auto",
       },
     },
   },
-  '@media (max-width:375px)': {
-    '& .tabImgArea': {
-      width: 'calc(50% - 10px)',
+  "@media (max-width:375px)": {
+    "& .tabImgArea": {
+      width: "calc(50% - 10px)",
     },
-    '& .MuiBox-root': {
-      padding: '20px 15px',
+    "& .MuiBox-root": {
+      padding: "20px 15px",
     },
   },
 }));
 
 const CharacterPageTitle = styled(Typography)({
-  justifyContent: 'center',
+  justifyContent: "center",
   // fontSize: '32px !important',
-  fontSize: '25px !important',
+  fontSize: "25px !important",
   // color: '#050505 !important',
-  fontWeight: '500',
+  fontWeight: "500",
   // fontFamily: 'Galmuri14 !important',
 });
 
 const CharacterPageDescription = styled(Typography)({
-  justifyContent: 'center',
-  fontSize: '16px !important',
-  color: '#a4a4a4 !important',
+  justifyContent: "center",
+  fontSize: "16px !important",
+  color: "#a4a4a4 !important",
   // fontFamily: 'Galmuri14!important',
-  marginBottom: '2rem !important',
+  marginBottom: "2rem !important",
 });
 
-const CharacterPageTabArea = styled('div')({
-  width: '100%',
-  border: 'none',
-  outline: 'none',
-  boxShadow: 'none',
-  backgroundColor: '#ededed',
-  borderRadius: '16px 16px 0 0',
+const CharacterPageTabArea = styled("div")({
+  width: "100%",
+  border: "none",
+  outline: "none",
+  boxShadow: "none",
+  backgroundColor: "#ededed",
+  borderRadius: "16px 16px 0 0",
 });
 
 const CharacterPageTab = styled(Tab)<{ selected?: boolean }>({
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  width: 'fit-content',
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  width: "fit-content",
   // backgroundColor: '#4B7CB4 !important',
-  backgroundColor: '#ededed !important',
-  color: '#A4A4A4 !important',
+  backgroundColor: "#ededed !important",
+  color: "#A4A4A4 !important",
   // fontSize: '20px !important',
-  fontSize: '16px !important',
-  border: 'none',
-  outline: 'none',
-  boxShadow: 'none',
+  fontSize: "16px !important",
+  border: "none",
+  outline: "none",
+  boxShadow: "none",
   // padding: '16px 32px !important',
-  fontFamily: 'Galmuri14 !important',
-  borderRadius: '16px 16px 0px 0px ',
+  fontFamily: "Galmuri14 !important",
+  borderRadius: "16px 16px 0px 0px ",
 
-  '&.Mui-selected': {
-    backgroundColor: '#5B93D5 !important',
-    color: '#fafdff !important',
+  "&.Mui-selected": {
+    backgroundColor: "#5B93D5 !important",
+    color: "#fafdff !important",
   },
-  '&:focus': {
-    outline: 'none',
+  "&:focus": {
+    outline: "none",
   },
-  '&:focus-visible': {
-    outline: 'none',
+  "&:focus-visible": {
+    outline: "none",
   },
 });
 
@@ -164,13 +164,13 @@ const CharacterPage = () => {
   const [value, setValue] = useState(0);
 
   const { userId } = useAuth();
-  const { data: allGoalData } = useGetGoals(userId ?? '');
+  const { data: allGoalData } = useGetGoals(userId ?? "");
 
   const onGoingGoals = allGoalData
-    ? allGoalData.filter((goal) => goal.status === 'in_progress')
+    ? allGoalData.filter((goal) => goal.status === "in_progress")
     : [];
   const completedGoals = allGoalData
-    ? allGoalData.filter((goal) => goal.status === 'completed')
+    ? allGoalData.filter((goal) => goal.status === "completed")
     : [];
 
   const handleChange = (_e: React.SyntheticEvent, newValue: number) => {
@@ -190,7 +190,7 @@ const CharacterPage = () => {
             onChange={handleChange}
             variant="standard"
             scrollButtons="auto"
-            TabIndicatorProps={{ style: { display: 'none' } }}
+            TabIndicatorProps={{ style: { display: "none" } }}
           >
             <CharacterPageTab label="진행중" {...a11yProps(0)} />
             <CharacterPageTab label="완료" {...a11yProps(1)} />
@@ -206,23 +206,23 @@ const CharacterPage = () => {
               return (
                 <Grid key={goal.id} className="tabImgArea">
                   <Box
-                    sx={{ cursor: 'pointer' }}
+                    sx={{ cursor: "pointer" }}
                     onClick={() => router.push(`/character/${goal.id}`)}
                     className="tabImg"
                   >
                     {image && <img src={image} alt="캐릭터 이미지" />}
                     <Typography
                       sx={{
-                        position: 'absolute',
+                        position: "absolute",
                         zIndex: 1,
-                        top: '0',
-                        right: '0',
-                        padding: '0.5rem 1rem',
-                        color: '#050505',
-                        fontWeight: 'bold',
-                        fontSize: '1rem',
-                        fontFamily: 'DNFBitBitv2 !important',
-                        borderBottomLeftRadius: '8px',
+                        top: "0",
+                        right: "0",
+                        padding: "0.5rem 1rem",
+                        color: "#050505",
+                        fontWeight: "bold",
+                        fontSize: "1rem",
+                        fontFamily: "DNFBitBitv2 !important",
+                        borderBottomLeftRadius: "8px",
                       }}
                     >
                       Lv. {goal.characterStatus.level}
@@ -242,20 +242,23 @@ const CharacterPage = () => {
 
               return (
                 <Grid key={goal.id} className="tabImgArea">
-                  <Box onClick={() => router.push(`/character/${goal.id}`)} className="tabImg">
+                  <Box
+                    onClick={() => router.push(`/character/${goal.id}`)}
+                    className="tabImg"
+                  >
                     {image && <img src={image} alt="캐릭터 이미지" />}
                     <Typography
                       sx={{
-                        position: 'absolute',
+                        position: "absolute",
                         zIndex: 1,
-                        top: '0',
-                        right: '0',
-                        padding: '0.5rem 1rem',
-                        color: '#050505',
-                        fontWeight: 'bold',
-                        fontSize: '1rem',
-                        fontFamily: 'DNFBitBitv2 !important',
-                        borderBottomLeftRadius: '8px',
+                        top: "0",
+                        right: "0",
+                        padding: "0.5rem 1rem",
+                        color: "#050505",
+                        fontWeight: "bold",
+                        fontSize: "1rem",
+                        fontFamily: "DNFBitBitv2 !important",
+                        borderBottomLeftRadius: "8px",
                       }}
                     >
                       Lv. {goal.characterStatus.level}
