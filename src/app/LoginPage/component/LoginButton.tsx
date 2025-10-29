@@ -1,9 +1,11 @@
+'use client';
+
 import { useAuth } from '@/hooks/auth/useAuth';
 import { logout, signInWithGoogle } from '@/lib/firebaseAuth';
 import GoogleIcon from '@mui/icons-material/Google';
 import { Button, Typography } from '@mui/material';
 import { useState } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import styled from 'styled-components';
 
 const GoogleLoginButton = styled(Button)({

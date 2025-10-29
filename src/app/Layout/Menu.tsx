@@ -1,7 +1,10 @@
+'use client';
+
 import HomeFilledIcon from '@mui/icons-material/HomeFilled';
 import ListIcon from '@mui/icons-material/List';
 import MarginIcon from '@mui/icons-material/Margin';
-import { NavLink } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import styled from 'styled-components';
 // import CatchingPokemonIcon from '@mui/icons-material/CatchingPokemon';
 // import DensitySmallIcon from '@mui/icons-material/DensitySmall';
@@ -94,32 +97,34 @@ const NevList = styled('ul')({
   },
 });
 const Menu = () => {
+  const pathname = usePathname();
+
   return (
     <MenuContainer className="menuList nameType">
       <NevList>
         <li>
-          <NavLink to="/character">
+          <Link href="/character" className={pathname === '/character' ? 'active' : ''}>
             <MarginIcon />
             <span className="name">캐릭터</span>
-          </NavLink>
+          </Link>
         </li>
         <li>
-          <NavLink to="/">
+          <Link href="/" className={pathname === '/' ? 'active' : ''}>
             <HomeFilledIcon />
             <span className="name">홈</span>
-          </NavLink>
+          </Link>
         </li>
         <li>
-          <NavLink to="/habit">
+          <Link href="/habit" className={pathname === '/habit' ? 'active' : ''}>
             <ListIcon />
             <span className="name">목표</span>
-          </NavLink>
+          </Link>
         </li>
         {/* <li> 
-          <NavLink to="/guide">
+          <Link href="/guide" className={pathname === '/guide' ? 'active' : ''}>
             <ViewSidebarIcon />
             <span className='name'>가이드</span>
-          </NavLink>
+          </Link>
         </li> */}
       </NevList>
     </MenuContainer>
