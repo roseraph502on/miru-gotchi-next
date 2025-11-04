@@ -1,9 +1,12 @@
 'use client';
+import eggLogo from '@assets/images/egg_mirugochi.png';
+import logo from '@assets/images/logo_mirugochi.png';
 
 import { Card, Container } from '@mui/material';
 import LoginButton from './component/LoginButton';
 import styled from 'styled-components';
 import Image from 'next/image';
+
 
 const LoginContainer = styled(Container)(() => ({
   minHeight: '100vh',
@@ -40,7 +43,7 @@ const LoginPage = () => {
     <LoginContainer maxWidth="sm" disableGutters>
       <StyledCard elevation={3}>
         <LogoImage alt="미루고치" src={eggLogo} />
-        <TextLogoImage alt="미루고치" src={logo} />
+        <TextLogoImage alt="미루고치" src={logo} width={240} height={400}/>
         <LoginButton />
       </StyledCard>
     </LoginContainer>

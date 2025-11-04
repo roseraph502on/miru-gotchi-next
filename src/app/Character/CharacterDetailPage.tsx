@@ -6,7 +6,7 @@ import ContentTitle from '../Layout/ContentTitle';
 import { Grid, styled, Typography } from '@mui/material';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
-import stageLocked from '../../assets/images/lockedStage.png';
+import stageLocked from '@assets/images/lockedStage.png';
 import { characterImageMap } from '../../constants/characterImages';
 
 type CharacterStage = 'egg' | 'baby' | 'teen' | 'adult';
@@ -164,7 +164,7 @@ const CharacterDetailPage = () => {
                     <UnlockedStage>
                       <StageLevelText>Lv. {stage.level}</StageLevelText>
                       {charImages && (
-                        <img
+                        <Image
                           src={charImages[stage.key]}
                           alt={`${stage.label} 이미지`}
                           style={{ width: '80%', height: '80%', objectFit: 'contain' }}
@@ -174,7 +174,7 @@ const CharacterDetailPage = () => {
                   ) : (
                     <LockedStage>
                       <StageLevelText>Lv. {stage.level}</StageLevelText>
-                      <LockedStageImg src={stageLocked} />
+                      <LockedStageImg src={stageLocked} alt='lsImg' />
                     </LockedStage>
                   )}
                 </Grid>

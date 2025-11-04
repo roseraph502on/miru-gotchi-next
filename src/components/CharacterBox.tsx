@@ -2,9 +2,16 @@
 
 import LinearProgress from '@mui/material/LinearProgress';
 import styled from 'styled-components';
+import Image, { StaticImageData } from 'next/image'; 
 
 import CharactersImage from './CharactersImage';
 import LifeIcon from './LifeIcon';
+
+import CatBackground from '@/assets/images/background/cat-background.png';
+import DogBackground from '@/assets/images/background/dog-background.png';
+import HamsterBackground from '@/assets/images/background/hamster-background.png';
+import RabbitBackground from '@/assets/images/background/rabbit-background.png';
+import TitBackground from '@/assets/images/background/tit-background.png';
 
 // import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
@@ -184,7 +191,7 @@ const CharacterBox = ({
             name={characterData?.name}
           />
         </Character>
-        <img src={characterData?.bg} alt="" className="characterBg" />
+        <Image src={characterData?.bg} alt="캐릭터 이미지" className="characterBg" />
       </CharacterField>
 
       <InfoField>

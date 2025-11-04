@@ -2,11 +2,13 @@ import { Box, Grid, styled } from '@mui/material';
 import ToggleButton, { toggleButtonClasses } from '@mui/material/ToggleButton';
 import ToggleButtonGroup, { toggleButtonGroupClasses } from '@mui/material/ToggleButtonGroup';
 
-import catEgg from '../../../assets/images/character/cat/cat-egg.png';
-import dogEgg from '../../../assets/images/character/dog/dog-egg.png';
-import hamsterEgg from '../../../assets/images/character/hamster/hamster-egg.png';
-import rabbitEgg from '../../../assets/images/character/rabbit/rabbit-egg.png';
-import titEgg from '../../../assets/images/character/tit/tit-egg.png';
+import Image from 'next/image';
+
+import catEgg from '@assets/images/character/cat/cat-egg.png';
+import dogEgg from '@assets/images/character/dog/dog-egg.png';
+import hamsterEgg from '@assets/images/character/hamster/hamster-egg.png';
+import rabbitEgg from '@assets/images/character/rabbit/rabbit-egg.png';
+import titEgg from '@assets/images/character/tit/tit-egg.png';
 const CharacterFormBox = styled(Grid)({
   width: '100%',
   height: 'auto',
@@ -77,7 +79,7 @@ const EggGrid = styled(Grid)({
   gap: 10,
   '@media (min-width: 1001px)': { gap: 15,},
 });
-const EggImg = styled('img')({
+const EggImg = styled(Image)({
   width: '100%',
   objectFit: 'contain',
 });

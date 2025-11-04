@@ -200,8 +200,12 @@ const HabitDetailPage = () => {
         await deleteGoal.mutateAsync(data.id);
         alert('습관이 성공적으로 삭제되었습니다.');
         router.push('/habit');
-      } catch (err: any) {
-        alert('습관 삭제 실패: ' + err.message);
+      }  catch (err: unknown) { // ✨ any 대신 unknown 사용 ✨
+        let errorMessage = '습관 삭제 실패: 알 수 없는 오류가 발생했습니다.';
+        if (err instanceof Error) { // ✨ Error 인스턴스인지 확인
+          errorMessage = `습관 삭제 실패: ${err.message}`;
+        }
+        alert(errorMessage);
       }
     }
   };
