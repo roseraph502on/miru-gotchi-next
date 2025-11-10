@@ -1,5 +1,5 @@
 import { Button, styled } from '@mui/material';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 const FloatingButton = styled(Button)(({ theme }) => ({
   position: 'fixed',

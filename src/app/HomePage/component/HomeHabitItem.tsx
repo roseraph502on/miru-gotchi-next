@@ -1,8 +1,10 @@
 import { useGetTodayLog } from '@hooks/useGetTodayLog';
 import { Box, Typography, Checkbox, CircularProgress } from '@mui/material';
 import { styled as muiStyled } from '@mui/material/styles';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import styled from 'styled-components';
+import { characterImageMap } from '@/constants/characterImages';
 
 import type { Character } from '@models/character';
 import type { Goal } from '@models/goal';
@@ -38,7 +40,7 @@ const CharacterContainer = styled.div`
   height: 50px;
 `;
 
-const CharacterImage = styled.img`
+const CharacterImage = styled(Image)`
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -97,11 +99,8 @@ const HomeHabitItem = ({ goal, character, onCheck }: HomeHabitItemProps) => {
   const { data: log, isLoading, isError } = useGetTodayLog(goal.id);
 
   const stage = goal.characterStatus?.gone ? 'gone' : goal.characterStatus?.growthStage;
-  const imagePath = character
-    ? goal.characterStatus.gone
-      ? `/assets/images/character/${stage}.png`
-      : `/assets/images/character/${character.type}/${character.type}-${stage}.png`
-    : '';
+  const charImages = goal.characterId ? characterImageMap[goal.characterId] : null;
+  const imagePath = charImages && stage ? charImages[stage as keyof typeof charImages] : '';
 
   const isTodayCompleted = log?.checked === true;
 
@@ -122,7 +121,14 @@ const HomeHabitItem = ({ goal, character, onCheck }: HomeHabitItemProps) => {
           )}
           <ContentsWrapper>
             <CharacterContainer>
-              <CharacterImage src={imagePath} alt={character.name} />
+              {imagePath && (
+                <CharacterImage 
+                  src={imagePath} 
+                  alt={character.name} 
+                  width={50}
+                  height={50}
+                />
+              )}
             </CharacterContainer>
             <TextContainer>
               <TruncatedTypography

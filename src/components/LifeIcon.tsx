@@ -1,45 +1,28 @@
 'use client';
 
-// import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import styled from 'styled-components';
-import Image from 'next/image';
 
 interface lifeProps {
   failCount?: number;
 }
 
-const LifeGroup = styled("div") ({
-  // color: '#FF1010',
-  // "&.life0": {
-  //     color: '#F2F2F3',
-  // },
-  // "&.life1": {
-  //     color: '#F2F2F3',
-  //   "& svg:first-child" :{
-  //     color: '#FF1010',
-  //   } 
-  // },
-  // "&.life2": {
-  //   "& svg:last-child" :{
-  //     color: '#F2F2F3',
-  //   } 
-  // },
-  // '& svg': {
-  //   stroke: '#2a251e',
-  //   strokeWidth: 2,
-  // },
+const LifeGroup = styled("div")({
   display: "flex",
   gap: "7px",
+  '& svg': {
+    fontSize: '20px',
+  },
 });
 
 const LifeIcon = ({failCount = 0}:lifeProps) => {
   const life = 3 - failCount;
   return (
-    // <LifeGroup className={`lifeGrop ${life <= 3 ? `life${life}`: ""}`}>
     <LifeGroup>
-      <img src={life >= 1 ? FullHeart : emptyHeart} alt="" />
-      <img src={life >= 2 ? FullHeart : emptyHeart} alt="" />
-      <img src={life >= 3 ? FullHeart : emptyHeart} alt="" />
+      {life >= 1 ? <FavoriteIcon sx={{ color: '#FF1010' }} /> : <FavoriteBorderIcon sx={{ color: '#F2F2F3' }} />}
+      {life >= 2 ? <FavoriteIcon sx={{ color: '#FF1010' }} /> : <FavoriteBorderIcon sx={{ color: '#F2F2F3' }} />}
+      {life >= 3 ? <FavoriteIcon sx={{ color: '#FF1010' }} /> : <FavoriteBorderIcon sx={{ color: '#F2F2F3' }} />}
     </LifeGroup>
   )
 }

@@ -1,11 +1,24 @@
-import { useAuth } from '@hooks/auth/useAuth';
-import * as React from 'react';
-import { Navigate } from 'react-router-dom';
+'use client';
+
+import { useAuth } from '@/hooks/auth/useAuth';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 
 const LoginRoute = ({ children }: { children: React.ReactNode }) => {
   const { user } = useAuth();
+  const router = useRouter();
 
-  return user ? <Navigate to="/" replace /> : <>{children}</>;
+  useEffect(() => {
+    if (user) {
+      router.push('/');
+    }
+  }, [user, router]);
+
+  if (user) {
+    return null; // 또는 로딩 스피너
+  }
+
+  return <>{children}</>;
 };
 
 export default LoginRoute;

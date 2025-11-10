@@ -1,5 +1,5 @@
 import { Typography } from '@mui/material';
-import HabitItem from '@pages/HabitPage/components/HabitItem';
+import HabitItem from './HabitItem';
 
 import type { Character } from '@models/character';
 import type { Goal } from '@models/goal';

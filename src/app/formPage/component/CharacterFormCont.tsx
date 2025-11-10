@@ -4,11 +4,11 @@ import ToggleButtonGroup, { toggleButtonGroupClasses } from '@mui/material/Toggl
 
 import Image from 'next/image';
 
-import catEgg from '@assets/images/character/cat/cat-egg.png';
-import dogEgg from '@assets/images/character/dog/dog-egg.png';
-import hamsterEgg from '@assets/images/character/hamster/hamster-egg.png';
-import rabbitEgg from '@assets/images/character/rabbit/rabbit-egg.png';
-import titEgg from '@assets/images/character/tit/tit-egg.png';
+import catEgg from '@/assets/images/character/cat/cat-egg.png';
+import dogEgg from '@/assets/images/character/dog/dog-egg.png';
+import hamsterEgg from '@/assets/images/character/hamster/hamster-egg.png';
+import rabbitEgg from '@/assets/images/character/rabbit/rabbit-egg.png';
+import titEgg from '@/assets/images/character/tit/tit-egg.png';
 const CharacterFormBox = styled(Grid)({
   width: '100%',
   height: 'auto',

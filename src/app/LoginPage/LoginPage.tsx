@@ -1,6 +1,6 @@
 'use client';
-import eggLogo from '@assets/images/egg_mirugochi.png';
-import logo from '@assets/images/logo_mirugochi.png';
+import eggLogo from '@/assets/images/egg_mirugochi.png';
+import logo from '@/assets/images/logo_mirugochi.png';
 
 import { Card, Container } from '@mui/material';
 import LoginButton from './component/LoginButton';

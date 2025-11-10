@@ -1,4 +1,7 @@
+'use client';
+
 import styled from "styled-components";
+
 interface ContentTitleProps {
     children?: React.ReactNode,
 }

@@ -4,6 +4,7 @@ import LoginButton from '../LoginPage/component/LoginButton';
 import Link from 'next/link';
 import Image from 'next/image'; 
 import styled from 'styled-components';
+import logoImage from '@/assets/images/logo.png';
 
 const HeaderArea = styled('header')({
   position: 'fixed',
@@ -78,8 +79,8 @@ const AppHeader = () => {
     <HeaderArea>
       <Inner>
         <Logo>
-          <Link href="/" passHref>
-            <Image src="/assets/images/logo.png" alt="미루고치" width={100} height={30} />
+          <Link href="/">
+            <Image src={logoImage} alt="미루고치" width={100} height={30} />
             <span className="hideTxt">미루고치</span>
           </Link>
         </Logo>

@@ -1,5 +1,5 @@
-import Loading from '@common/components/Loading';
-import { AuthContext } from '@context/AuthContext';
+import Loading from '@/components/Loading';
+import { AuthContext } from '@/context/AuthContext';
 import { onAuthStateChanged } from 'firebase/auth';
 import { useEffect, useState } from 'react';
 import * as React from 'react';

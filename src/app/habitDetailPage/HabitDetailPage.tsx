@@ -11,7 +11,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import EditNoteIcon from '@mui/icons-material/EditNote';
 import { Box, Button, Grid, styled } from '@mui/material';
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useParams } from 'next/navigation';
 import Image from 'next/image';
 
 import EditHabitDetailModal from './component/EditHabitDetailModal';
@@ -162,8 +162,10 @@ const HabitDoneBtn = styled(Button)({
 
 const HabitDetailPage = () => {
   const router = useRouter();
-  const { id } = router.query;
+  const params = useParams();
   const { userId } = useAuthContext();
+  
+  const id = typeof params?.id === 'string' ? params.id : '';
 
 
   const { deleteGoal } = useGoalsFirestore();

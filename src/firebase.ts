@@ -12,6 +12,13 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
+// 환경 변수 검증
+if (!firebaseConfig.apiKey || firebaseConfig.apiKey === 'your-api-key-here') {
+  throw new Error(
+    'Firebase API 키가 설정되지 않았습니다. .env.local 파일에 실제 Firebase 설정 값을 입력해주세요.'
+  );
+}
+
 const app = initializeApp(firebaseConfig);
 
 export const auth = getAuth(app);

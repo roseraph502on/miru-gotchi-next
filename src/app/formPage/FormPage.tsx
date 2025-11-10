@@ -1,8 +1,8 @@
 'use client';
 
-import BeforeBtn from "@common/components/BeforeBtn"
-import { useGoalsFirestore } from "@hooks/useGoalsMutation"
-import ContentTitle from "@layout/common/ContentTitle"
+import BeforeBtn from "@/components/BeforeBtn"
+import { useGoalsFirestore } from "@/hooks/useGoalsMutation"
+import ContentTitle from "@/app/Layout/ContentTitle"
 import { Box, Button, Grid, styled } from "@mui/material"
 import { useState } from "react"
 import { useRouter } from "next/navigation"
@@ -52,7 +52,7 @@ const FormButton = styled(Button)({
 })
 //-----------------------------------------//
 const FormPage = () => {
-  const nav = userouter.push();
+  const router = useRouter();
   const [formData, setFormData] = useState({
     title: '',
     period: '',
@@ -119,7 +119,7 @@ const FormPage = () => {
       // addGoal 뮤테이션 실행
       await addGoal.mutateAsync(newGoalData);
       alert('습관이 성공적으로 등록되었습니다!');
-      nav('/habit');
+      router.push('/habit');
       setFormData({
         title: '',
         description: '',
@@ -137,7 +137,7 @@ const FormPage = () => {
   return (
     <FormPageBox>
       <ContentTitle>
-        <BeforeBtn handleClick={() => nav('/habit')} />
+        <BeforeBtn handleClick={() => router.push('/habit')} />
         <h2>습관 등록</h2>
       </ContentTitle>
       <Form

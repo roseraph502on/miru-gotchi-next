@@ -1,6 +1,7 @@
 'use client';
 
 import { styled } from "styled-components";
+import Image from 'next/image';
 
 import { characterImageMap } from "@/constants/characterImages";
 
@@ -36,7 +37,13 @@ const CharactersImage = ({ characterStatus, characterId, name}:CharactersImagePr
     <div className="characterArea">
       {name && <Name className="fontBitBit nameTag">{name}</Name>}
       {charImages && characterStatus && (
-        <img src={charImages[characterStatus?.growthStage]} alt={name} />
+        <Image 
+          src={charImages[characterStatus?.growthStage]} 
+          alt={name || '캐릭터 이미지'} 
+          width={200}
+          height={200}
+          style={{ width: '100%', height: 'auto' }}
+        />
       )}
     </div>
   )

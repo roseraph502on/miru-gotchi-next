@@ -1,11 +1,12 @@
 "use client";
 
-import { useAuth } from "@hooks/auth/useAuth";
-import { useGetGoals } from "@hooks/useGetGoals";
-import ContentInner from '@layout/ContentInner';
+import { useAuth } from "@/hooks/auth/useAuth";
+import { useGetGoals } from "@/hooks/useGetGoals";
+import ContentInner from '@/app/Layout/ContentInner';
 import { Box, Grid, styled, Tab, Tabs, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from 'next/image';
 
 import { characterImageMap } from "../../constants/characterImages";
 
@@ -210,7 +211,7 @@ const CharacterPage = () => {
                     onClick={() => router.push(`/character/${goal.id}`)}
                     className="tabImg"
                   >
-                    {image && <img src={image} alt="캐릭터 이미지" />}
+                    {image && <Image src={image} alt="캐릭터 이미지" width={128} height={128} style={{ width: '80px', height: '80px', objectFit: 'contain' }} />}
                     <Typography
                       sx={{
                         position: "absolute",
@@ -246,7 +247,7 @@ const CharacterPage = () => {
                     onClick={() => router.push(`/character/${goal.id}`)}
                     className="tabImg"
                   >
-                    {image && <img src={image} alt="캐릭터 이미지" />}
+                    {image && <Image src={image} alt="캐릭터 이미지" width={128} height={128} style={{ width: '80px', height: '80px', objectFit: 'contain' }} />}
                     <Typography
                       sx={{
                         position: "absolute",

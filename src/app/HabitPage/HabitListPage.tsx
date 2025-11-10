@@ -1,16 +1,16 @@
 "use client";
 
-import AddNewGoalButton from "@components/AddNewGoalButton";
-import CustomSwitch from "@components/CustomSwitch";
-import Loading from "@components/Loading";
-import { useAuth } from "@hooks/auth/useAuth";
-import { useCompleteTodayLog } from "@hooks/useCompleteTodayLog";
-import { useGetAllCharacters } from "@hooks/useGetAllCharacters";
-import { useGetAllTodayLogs } from "@hooks/useGetAllTodayLogs";
-import { useGetGoals } from "@hooks/useGetGoals";
+import AddNewGoalButton from "@/components/AddNewGoalButton";
+import CustomSwitch from "@/components/CustomSwitch";
+import Loading from "@/components/Loading";
+import { useAuth } from "@/hooks/auth/useAuth";
+import { useCompleteTodayLog } from "@/hooks/useCompleteTodayLog";
+import { useGetAllCharacters } from "@/hooks/useGetAllCharacters";
+import { useGetAllTodayLogs } from "@/hooks/useGetAllTodayLogs";
+import { useGetGoals } from "@/hooks/useGetGoals";
 import { Box, Typography, Tabs, Tab } from "@mui/material";
 import { styled as muiStyled } from "@mui/material/styles";
-import HabitList from "@pages/HabitPage/components/HabitList";
+import HabitList from "./components/HabitList";
 import { useState, useMemo } from "react";
 import styled from "styled-components";
 

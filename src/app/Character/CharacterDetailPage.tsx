@@ -1,12 +1,14 @@
+'use client';
+
 import BeforeBtn from '@/components/BeforeBtn';
 import CharacterBox from '@/components/CharacterBox';
 import { useAuthContext } from '@/hooks/auth/useAuthContext';
 import { useGetGoal } from '@/hooks/useGetGoal';
 import ContentTitle from '../Layout/ContentTitle';
 import { Grid, styled, Typography } from '@mui/material';
-import { useRouter } from 'next/router';
+import { useRouter, useParams } from 'next/navigation';
 import Image from 'next/image';
-import stageLocked from '@assets/images/lockedStage.png';
+import stageLocked from '@/assets/images/lockedStage.png';
 import { characterImageMap } from '../../constants/characterImages';
 
 type CharacterStage = 'egg' | 'baby' | 'teen' | 'adult';
@@ -109,10 +111,10 @@ const LockedStage = styled('div')({
 
 const CharacterDetailPage = () => {
   const router = useRouter();
+  const params = useParams();
   const { userId } = useAuthContext();
 
-  const { id } = router.query;
-  const characterIdParam = typeof id === 'string' ? id : '';
+  const characterIdParam = typeof params?.id === 'string' ? params.id : '';
    const { data: goalData } = useGetGoal(userId ?? '', characterIdParam ?? '');
 
   const growthStages: { level: number; label: string; key: keyof CharacterImageSet }[] = [

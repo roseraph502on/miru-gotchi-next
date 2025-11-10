@@ -1,4 +1,6 @@
 import { FormControl, Grid, InputLabel, MenuItem, Select, TextField, styled } from '@mui/material';
+import Image from 'next/image';
+import calendarIcon from '@/icon/interface-essential-calendar-appointment--Streamline-Pixel.svg';
 
 const GoalFormBox = styled(Grid)({
   width: '100%',
@@ -30,7 +32,7 @@ const TitleTextField = styled(TextField)(() => ({
     '@media (max-height: 700px)': { fontSize: '12px',maxHeight:'6vh',overflowY:'auto'},
   }
 }));
-const CalenderIcon = styled('img')({
+const CalenderIcon = styled(Image)({
   height: '25px',
   filter: 'invert(100%)',
 })
@@ -72,7 +74,7 @@ const GoalFormCpnt: React.FC<GoalFormCpntProps> = ({
       />
       <DateSelectBox>
         <InputLabel>
-          <CalenderIcon src="/icon/interface-essential-calendar-appointment--Streamline-Pixel.svg" />
+          <CalenderIcon src={calendarIcon} alt="달력 아이콘" width={25} height={25} />
         </InputLabel>
         <Select
           // onChange={handle}

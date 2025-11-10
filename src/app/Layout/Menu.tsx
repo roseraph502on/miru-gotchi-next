@@ -99,23 +99,30 @@ const NevList = styled('ul')({
 const Menu = () => {
   const pathname = usePathname();
 
+  const isActive = (path: string) => {
+    if (path === '/') {
+      return pathname === '/';
+    }
+    return pathname.startsWith(path);
+  };
+
   return (
     <MenuContainer className="menuList nameType">
       <NevList>
         <li>
-          <Link href="/character" className={pathname === '/character' ? 'active' : ''}>
+          <Link href="/character" className={isActive('/character') ? 'active' : ''}>
             <MarginIcon />
             <span className="name">캐릭터</span>
           </Link>
         </li>
         <li>
-          <Link href="/" className={pathname === '/' ? 'active' : ''}>
+          <Link href="/" className={isActive('/') ? 'active' : ''}>
             <HomeFilledIcon />
             <span className="name">홈</span>
           </Link>
         </li>
         <li>
-          <Link href="/habit" className={pathname === '/habit' ? 'active' : ''}>
+          <Link href="/habit" className={isActive('/habit') ? 'active' : ''}>
             <ListIcon />
             <span className="name">목표</span>
           </Link>
