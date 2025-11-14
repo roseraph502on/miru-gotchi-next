@@ -2,7 +2,7 @@
 
 import BeforeBtn from "@/components/BeforeBtn"
 import { useGoalsFirestore } from "@/hooks/useGoalsMutation"
-import ContentTitle from "@/app/Layout/ContentTitle"
+import ContentTitle from "@/app/main/ContentTitle"
 import { Box, Button, Grid, styled } from "@mui/material"
 import { useState } from "react"
 import { useRouter } from "next/navigation"

@@ -1,7 +1,7 @@
 import { useGoalsFirestore } from "@hooks/useGoalsMutation"
 import { Button, Dialog, Grid, styled } from "@mui/material"
-import CharacterFormCont from "@/app/formPage/component/CharacterFormCont"
-import GoalFormCpnt from "@/app/formPage/component/GoalFormCpnt"
+import CharacterFormCont from "@/app/new/component/CharacterFormCont"
+import GoalFormCpnt from "@/app/new/component/GoalFormCpnt"
 import { useEffect, useState } from "react"
 
 import type { CreateGoalData, Goal } from "@models/goal"

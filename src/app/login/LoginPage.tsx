@@ -43,7 +43,7 @@ const LoginPage = () => {
     <LoginContainer maxWidth="sm" disableGutters>
       <StyledCard elevation={3}>
         <LogoImage alt="미루고치" src={eggLogo} />
-        <TextLogoImage alt="미루고치" src={logo} width={240} height={400}/>
+        <TextLogoImage alt="미루고치" src={logo} />
         <LoginButton />
       </StyledCard>
     </LoginContainer>

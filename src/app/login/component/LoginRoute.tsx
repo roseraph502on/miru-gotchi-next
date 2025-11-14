@@ -1,5 +1,6 @@
 'use client';
 
+import Loading from '@/components/Loading';
 import { useAuth } from '@/hooks/auth/useAuth';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
@@ -10,14 +11,14 @@ const LoginRoute = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     if (user) {
-      router.push('/');
+      router.replace('/');
     }
   }, [user, router]);
-
-  if (user) {
-    return null; // 또는 로딩 스피너
-  }
-
+  //확인 중
+  if (user === undefined) return <Loading />;
+  //로그인 되어 있으면 로그인 페이지로 이동
+  if (user !== null) return null;
+  //로그인 안되어 있으면 자식 컴포넌트 렌더링
   return <>{children}</>;
 };
 

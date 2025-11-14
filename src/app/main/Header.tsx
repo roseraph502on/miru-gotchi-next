@@ -1,6 +1,6 @@
 'use client';
 
-import LoginButton from '../LoginPage/component/LoginButton';
+import LoginButton from '../login/component/LoginButton';
 import Link from 'next/link';
 import Image from 'next/image'; 
 import styled from 'styled-components';

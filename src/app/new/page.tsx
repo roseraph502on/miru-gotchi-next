@@ -1,4 +1,4 @@
-import FormPage from '../formPage/FormPage';
+import FormPage from './FormPage';
 
 export default function Page() {
   return <FormPage />;

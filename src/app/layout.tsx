@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import AppLayoutClient from './Layout/AppLayoutClient';
+import AppLayoutClient from './main/AppLayoutClient';
 
 export const metadata: Metadata = {
   title: '미루고치',

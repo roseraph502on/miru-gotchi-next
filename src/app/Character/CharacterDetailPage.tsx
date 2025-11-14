@@ -4,7 +4,7 @@ import BeforeBtn from '@/components/BeforeBtn';
 import CharacterBox from '@/components/CharacterBox';
 import { useAuthContext } from '@/hooks/auth/useAuthContext';
 import { useGetGoal } from '@/hooks/useGetGoal';
-import ContentTitle from '../Layout/ContentTitle';
+import ContentTitle from '../main/ContentTitle';
 import { Grid, styled, Typography } from '@mui/material';
 import { useRouter, useParams } from 'next/navigation';
 import Image from 'next/image';
