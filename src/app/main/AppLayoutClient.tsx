@@ -38,11 +38,7 @@ export default function AppLayoutClient({ children }: { children: React.ReactNod
       <AuthProvider>
         <QueryProvider>
           {isLoginRoute ? (
-            <Wrap>
-              <Header />
-              <ContentArea>{children}</ContentArea>
-              <Menu />
-            </Wrap>
+            <ContentArea>{children}</ContentArea>
           ) : (
             <PrivateRoute>
               <Wrap>
