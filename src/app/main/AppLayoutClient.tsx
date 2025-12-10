@@ -18,13 +18,13 @@ const Wrap = styled.div`
   min-width: 340px;
 `;
 
-const ContentArea = styled.main`
-  padding: 70px 20px;
+const ContentArea = styled.main<{ $isLogin?: boolean }>`
+  padding: ${props => props.$isLogin ? '0' : '70px 20px'};
   height: 100%;
   display: flex;
   flex-direction: column;
   @media (min-width: 1280px) {
-    padding: 120px 0 50px;
+    padding: ${props => props.$isLogin ? '0' : '120px 0 50px'};
   }
 `;
 
@@ -38,12 +38,12 @@ export default function AppLayoutClient({ children }: { children: React.ReactNod
       <AuthProvider>
         <QueryProvider>
           {isLoginRoute ? (
-            <ContentArea>{children}</ContentArea>
+            <ContentArea $isLogin={true}>{children}</ContentArea>
           ) : (
             <PrivateRoute>
               <Wrap>
                 <Header />
-                <ContentArea>{children}</ContentArea>
+                <ContentArea $isLogin={false}>{children}</ContentArea>
                 <Menu />
               </Wrap>
             </PrivateRoute>
