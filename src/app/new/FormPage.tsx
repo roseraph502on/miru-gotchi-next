@@ -127,8 +127,9 @@ const FormPage = () => {
         characterId: '',
         characterStatus: { growthStage: 'egg' as GrowthStage, level: 0, gone: false } as CharacterStatus,
       });
-    } catch (error: any) {
-      alert('습관 등록 실패: ' + error.message);
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      alert('습관 등록 실패: ' + errorMessage);
       console.error('습관 등록 에러:', error);
     }
   };

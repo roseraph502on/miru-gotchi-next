@@ -99,6 +99,7 @@ const HomePage = () => {
       fetchCompletedCount();
       getRandomNum(inProgressGoals.length);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userId, inProgressGoals]);
 
   const handleCheck = async (goalId: string, logId?: string) => {

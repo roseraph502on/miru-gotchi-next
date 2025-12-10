@@ -117,8 +117,9 @@ const EditHabitDetailModal: React.FC<EditGoalFormDialogProps>
         });
         alert('습관이 성공적으로 수정되었습니다!');
         onClose(); // 성공 시 모달 닫기
-      } catch (error: any) {
-        alert('습관 수정 실패: ' + error.message);
+      } catch (error: unknown) {
+        const errorMessage = error instanceof Error ? error.message : String(error);
+        alert('습관 수정 실패: ' + errorMessage);
         console.error('습관 수정 에러:', error);
       }
     };

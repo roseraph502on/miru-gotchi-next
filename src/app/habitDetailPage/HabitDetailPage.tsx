@@ -12,7 +12,6 @@ import EditNoteIcon from '@mui/icons-material/EditNote';
 import { Box, Button, Grid, styled } from '@mui/material';
 import { useState } from 'react';
 import { useRouter, useParams } from 'next/navigation';
-import Image from 'next/image';
 
 import EditHabitDetailModal from './component/EditHabitDetailModal';
 

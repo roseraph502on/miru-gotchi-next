@@ -28,7 +28,7 @@ export const updateGoal = async (
   const updatePayload = convertDatesToTimestamps({
     ...updatedData,
     updatedAt: Timestamp.now(),
-  });
+  }) as Record<string, unknown>;
 
   await updateDoc(goalRef, updatePayload);
 };

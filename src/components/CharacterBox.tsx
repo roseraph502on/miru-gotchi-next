@@ -191,7 +191,7 @@ const CharacterBox = ({
             name={characterData?.name}
           />
         </Character>
-        <Image src={characterData?.bg} alt="캐릭터 이미지" className="characterBg" />
+        {characterData?.bg && <Image src={characterData.bg} alt="캐릭터 이미지" className="characterBg" />}
       </CharacterField>
 
       <InfoField>

@@ -19,11 +19,12 @@ import TitAdult from '@/assets/images/character/tit/tit-adult.png';
 import TitBaby from '@/assets/images/character/tit/tit-baby.png';
 import TitEgg from '@/assets/images/character/tit/tit-egg.png';
 import TitTeen from '@/assets/images/character/tit/tit-teen.png';
+import { StaticImageData } from 'next/image';
 
 type CharacterStage = 'egg' | 'baby' | 'teen' | 'adult' | 'gone';
 
 type CharacterImageSet = {
-  [key in CharacterStage]: string;
+  [key in CharacterStage]: StaticImageData;
 };
 
 export const characterImageMap: Record<string, CharacterImageSet> = {
