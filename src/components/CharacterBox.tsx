@@ -36,6 +36,7 @@ const CharacterContent = styled('div')({
   margin: '0 auto',
   '& .characterBg': {
     width: '100%',
+    height: 'auto',
   },
   '&.rabbit .character': {
     left: '25%',
