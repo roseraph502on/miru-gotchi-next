@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useAuth } from "@/hooks/auth/useAuth";
+import { useAuth } from '@/hooks/auth/useAuth';
 import { useGetGoals } from "@/hooks/useGetGoals";
 import ContentInner from '@/app/main/ContentInner';
 import { Box, Grid, styled, Tab, Tabs, Typography } from "@mui/material";
