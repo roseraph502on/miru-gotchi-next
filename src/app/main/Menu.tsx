@@ -78,9 +78,12 @@ const NevList = styled('ul')({
   maxWidth: '1280px',
   minWidth: '320px',
   margin: '0 auto',
+  listStyle: 'none',
+  padding: 0,
 
   '& li': {
     flexGrow: 1,
+    listStyle: 'none',
     '& a': {
       display: 'flex',
       alignItems: 'center',
@@ -88,11 +91,10 @@ const NevList = styled('ul')({
       width: '100%',
       height: '100%',
       color: '#fff',
+      textDecoration: 'none',
       '&.active': {
         backgroundColor: 'rgba(91,147,213,0.8)',
       },
-      // backgroundColor: "#5B93D5",
-      // backgroundColor: "#050505",
     },
   },
 });
