@@ -8,6 +8,7 @@ import Header from './Header';
 import Menu from './Menu';
 import styled from 'styled-components';
 import PrivateRoute from '../login/component/PrivateRoute';
+import { usePathname } from 'next/navigation';
 
 const Wrap = styled.div`
   position: relative;
@@ -28,18 +29,29 @@ const ContentArea = styled.main`
 `;
 
 export default function AppLayoutClient({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+  const isLoginRoute = pathname?.startsWith('/login');
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <AuthProvider>
         <QueryProvider>
-          <PrivateRoute>
+          {isLoginRoute ? (
             <Wrap>
               <Header />
               <ContentArea>{children}</ContentArea>
               <Menu />
             </Wrap>
-          </PrivateRoute>
+          ) : (
+            <PrivateRoute>
+              <Wrap>
+                <Header />
+                <ContentArea>{children}</ContentArea>
+                <Menu />
+              </Wrap>
+            </PrivateRoute>
+          )}
         </QueryProvider>
       </AuthProvider>
     </ThemeProvider>

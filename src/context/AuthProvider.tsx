@@ -1,3 +1,5 @@
+"use client";
+
 import Loading from '@/components/Loading';
 import { AuthContext } from '@/context/AuthContext';
 import { onAuthStateChanged } from 'firebase/auth';
