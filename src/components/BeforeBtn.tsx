@@ -13,6 +13,18 @@ const BeforeButton = styled("button")({
   padding: 0,
   fontSize: 0,
   backgroundColor: "transparent",
+  border: 'none',
+  outline: 'none',
+  boxShadow: 'none',
+  cursor: 'pointer',
+  '&:focus': {
+    outline: 'none',
+    boxShadow: 'none',
+  },
+  '&:focus-visible': {
+    outline: 'none',
+    boxShadow: 'none',
+  },
 })
 
 const BeforeBtn = ({ handleClick }: BeforeButtonProps) => {

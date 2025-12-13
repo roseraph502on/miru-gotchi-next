@@ -1,4 +1,4 @@
-import { FormControl, Grid, InputLabel, MenuItem, Select, TextField, styled } from '@mui/material';
+import { FormControl, Grid, InputLabel, MenuItem, Select, TextField, styled, Box } from '@mui/material';
 import Image from 'next/image';
 import calendarIcon from '@/icon/interface-essential-calendar-appointment--Streamline-Pixel.svg';
 
@@ -11,31 +11,41 @@ const GoalFormBox = styled(Grid)({
   display: 'flex',
   flexDirection: 'column',
   gap: 20,
-  '@media (min-width: 1001px)': { padding: '30px 20px', },
-  '@media (max-width: 600px)': { gap: 10, fontSize: '12px', padding: '15px 15px', },
+  '@media (min-width: 1001px)': { padding: '30px 20px' },
+  '@media (max-width: 600px)': { gap: 10, fontSize: '12px', padding: '15px 15px' },
 });
-const TitleTextField = styled(TextField)(() => ({
+
+// shouldForwardProp으로 disableUnderline이 DOM으로 전달되지 않도록 차단
+const TitleTextField = styled(TextField, {
+  shouldForwardProp: (prop) => prop !== 'disableUnderline' && prop !== '$disableUnderline'
+})(() => ({
   width: '100%',
   color: '#fff',
   backgroundColor: '#ffffff80',
   borderRadius: '5px',
-  '&hover': {
+  '&:hover': {
     border: '#fff',
   },
   border: 'none',
   '& fieldset': { border: 'none' },
   '& .MuiInputBase-input': {
-    '&::placeholder': { fontFamily: 'Galmuri14', },
+    '&::placeholder': { fontFamily: 'Galmuri14' },
     fontFamily: 'Galmuri14',
-    '@media (max-width: 600px)': { fontSize: '12px',maxHeight:'18vh',overflowY:'auto'},
-    '@media (max-height: 780px)': { fontSize: '12px',maxHeight:'13vh',overflowY:'auto'},
-    '@media (max-height: 700px)': { fontSize: '12px',maxHeight:'6vh',overflowY:'auto'},
-  }
+    '@media (max-width: 600px)': { fontSize: '12px', maxHeight: '18vh', overflowY: 'auto' },
+    '@media (max-height: 780px)': { fontSize: '12px', maxHeight: '13vh', overflowY: 'auto' },
+    '@media (max-height: 700px)': { fontSize: '12px', maxHeight: '6vh', overflowY: 'auto' },
+  },
 }));
-const CalenderIcon = styled(Image)({
-  height: '25px',
+
+const CalenderIconWrapper = styled(Box)({
+  width: 25,
+  height: 25,
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
   filter: 'invert(100%)',
-})
+});
+
 const DateSelectBox = styled(FormControl)({
   width: '100%',
   borderColor: '#fff',
@@ -49,7 +59,7 @@ interface GoalFormCpntProps {
   period: string;
   description: string;
   onTitleChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
-  onPeriodChange: (value: string) => void; // Select의 onChange는 value만 전달
+  onPeriodChange: (value: string) => void;
   onDescriptionChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
 }
 
@@ -66,25 +76,25 @@ const GoalFormCpnt: React.FC<GoalFormCpntProps> = ({
       <TitleTextField
         placeholder="습관 이름을 입력하세요. (최대 30자)"
         multiline
-        InputProps={{ disableUnderline: true }}
-        inputProps={{maxLength:30}}
+        InputProps={{ disableUnderline: true }} // MUI Input에 전달되는 정상 사용법
+        inputProps={{ maxLength: 30 }}
         name="title"
         value={title}
         onChange={onTitleChange}
       />
       <DateSelectBox>
         <InputLabel>
-          <CalenderIcon src={calendarIcon} alt="달력 아이콘" width={25} height={25} />
+          <CalenderIconWrapper>
+            <Image src={calendarIcon} alt="달력 아이콘" width={20} height={20} />
+          </CalenderIconWrapper>
         </InputLabel>
         <Select
-          // onChange={handle}
           label="기간"
           MenuProps={{ PaperProps: { sx: { maxHeight: 150, overflowY: 'auto' } } }}
           value={period}
           onChange={(e) => onPeriodChange(e.target.value as string)}
         >
           {[...Array(8)].map((_, index) => {
-            // 1부터 20까지의 MenuItem 생성
             const value = index + 1;
             return (
               <MenuItem key={value} value={value}>

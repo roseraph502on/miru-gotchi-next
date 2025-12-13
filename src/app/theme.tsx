@@ -2,26 +2,31 @@ import { createTheme } from '@mui/material';
 
 const theme = createTheme({
   typography: {
-    fontFamily: 'Paperlogy, DNFBitBitv2, Galmuri14',
+    // 기본 폰트
+    fontFamily:  'Galmuri14, DNFBitBitv2',
     body1: {
-      fontSize: '14px',
+      fontSize: '13px',
     },
   },
   palette: {
+    // 테마 색상 팔레트: primary / secondary / error 등
+    // main 값은 컴포넌트에서 기본적으로 사용하는 색상입니다.
     primary: {
-      main: '#5B93D5',
-      // contrastText: "#fff"
+      main: '#ffffffde',
+      // contrastText: "#fff" // 필요 시 대비 텍스트 색 지정
     },
     secondary: {
       main: '#B0E501',
       // contrastText: "#FAFDFF"
     },
     error: {
-      main: '#FF1010',
+      // 에러(오류) 색상
+      main: '#b60f0fff',
     },
     background: {
-      default: '#fff',
-      paper: '#F2F2F3',
+      // 전역 배경 색상 (default), Paper 컴포넌트 배경 색상
+      default: '#F1D4E3',
+      paper: '#e0abc6ff',
     },
     text: {
       primary: '#050505',
@@ -31,42 +36,6 @@ const theme = createTheme({
   components: {
     MuiCssBaseline: {
       styleOverrides: `
-        @font-face {
-          font-family: 'Paperlogy';
-          src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-3Light.woff2') format('woff2');
-          font-weight: 300;
-          font-style: normal;
-        }
-        @font-face {
-          font-family: 'Paperlogy';
-          src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-4Regular.woff2') format('woff2');
-          font-weight: 400;
-          font-style: normal;
-        }
-        @font-face {
-          font-family: 'Paperlogy';
-          src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-5Medium.woff2') format('woff2');
-          font-weight: 500;
-          font-style: normal;
-        }
-        @font-face {
-          font-family: 'Paperlogy';
-          src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-6SemiBold.woff2') format('woff2');
-          font-weight: 600;
-          font-style: normal;
-        }
-        @font-face {
-          font-family: 'Paperlogy';
-          src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-7Bold.woff2') format('woff2');
-          font-weight: 700;
-          font-style: normal;
-        }
-        @font-face {
-          font-family: 'Paperlogy';
-          src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-8ExtraBold.woff2') format('woff2');
-          font-weight: 800;
-          font-style: normal;
-        }
         @font-face{
           font-family:'DNFBitBitv2';
           src:url('//cdn.df.nexon.com/img/common/font/DNFBitBitv2.otf')format('opentype');
@@ -84,24 +53,39 @@ const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
-          backgroundColor: '#5B93D5',
+          backgroundColor: '#86B4EB',
           color: '#FAFDFF',
           fontFamily: 'Galmuri14',
           letterSpacing: '0.025em',
+          /*
+            기본 버튼 스타일
+          */
+          border: 'none',
+          outline: 'none',
+          boxShadow: 'none',
           '&:hover': {
-            backgroundColor: '#4585d0',
+            backgroundColor: '#7358B1',
+            boxShadow: 'none',
+          },
+          '&:focus': {
+            outline: 'none',
+            boxShadow: 'none',
+          },
+          '&:focus-visible': {
+            outline: 'none',
             boxShadow: 'none',
           },
         },
         containedSecondary: {
-          backgroundColor: '#B0E501',
+          backgroundColor: '#93CAC8',
           color: '#FAFDFF',
           boxShadow: 'none',
           '&:hover': {
-            backgroundColor: '#a2d00a',
+            backgroundColor: '#7358B1',
           },
         },
         containedError: {
+          // 에러
           backgroundColor: '#FF1010',
           color: '#FAFDFF',
           boxShadow: 'none',
@@ -116,16 +100,11 @@ const theme = createTheme({
         },
       },
     },
+    //탭
     MuiTab: {
       styleOverrides: {
         root: {
-          fontWeight: '500',
-          // "&.Mui-selected": {
-          //   fontWeight: "500",
-          // }
-          // "&.contain": {
-          //   backgroundColor: "#5B93D5",
-          // }
+          fontWeight: '700',
           '&:focus': {
             outline: 'none',
           },
@@ -135,6 +114,7 @@ const theme = createTheme({
         },
       },
     },
+    //체크박스
     MuiCheckbox: {
       styleOverrides: {
         root: {

@@ -14,7 +14,7 @@ const GoogleLoginButton = styled(Button)({
   boxShadow: '0 2px 4px rgba(0, 0, 0, 0.15)',
   transition: 'transform 0.1s',
   '&:hover': {
-    backgroundColor: '#B0E501 !important',
+    backgroundColor: '#93CAC8 !important',
     color: '#777',
     boxShadow: '0 3px 4px rgba(0, 0, 0, 0.15) !important',
   },

@@ -22,10 +22,10 @@ const HabitCard = styled(Box) <{ checked: boolean }>`
   cursor: pointer;
   transition: background-color 0.2s ease;
 
-  background-color: ${({ checked }) => (checked ? '#B0E501' : '#5B93D5')};
+  background-color: ${({ checked }) => (checked ? '#93CAC8' : '#86B4EB')};
 
   &:hover {
-    background-color: ${({ checked }) => (checked ? '#A0D400' : '#4A80BF')};
+    background-color: ${({ checked }) => (checked ? '#93CAC8' : '#86B4EB')};
   }
 `;
 const ContentsWrapper = muiStyled(Box)({
@@ -67,14 +67,14 @@ const CharacterNameOverlay = styled(Typography)`
 `;
 const CompletedLabel = styled(Typography)`
   font-weight: bold;
-  color: #5b93d5;
+  color: #86B4EB;
   margin-left: 8px;
 `;
 
 const CustomCheckbox = muiStyled(Checkbox)({
   color: '#fff',
   '&.Mui-checked': {
-    color: '#5B93D5',
+    color: '#86B4EB',
   },
   '&.Mui-disabled': {
     color: '#555',

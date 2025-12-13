@@ -12,7 +12,7 @@ import { usePathname } from 'next/navigation';
 
 const Wrap = styled.div`
   position: relative;
-  height: 100%;
+  height: 100vh;
   max-width: 1280px;
   margin: 0 auto;
   min-width: 340px;
@@ -20,11 +20,11 @@ const Wrap = styled.div`
 
 const ContentArea = styled.main<{ $isLogin?: boolean }>`
   padding: ${props => props.$isLogin ? '0' : '70px 20px'};
-  height: 100%;
+  height: auto;
   display: flex;
   flex-direction: column;
   @media (min-width: 1280px) {
-    padding: ${props => props.$isLogin ? '0' : '120px 0 50px'};
+    padding: ${props => props.$isLogin ? '0' : '120px 0 0px'};
   }
 `;
 

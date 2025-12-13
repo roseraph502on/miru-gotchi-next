@@ -15,7 +15,7 @@ const MenuContainer = styled('nav')({
   bottom: 0,
   width: '100%',
   height: '50px',
-  backgroundColor: '#050505',
+  backgroundColor: '#ffffff96',
   '@media (max-width:1279px)': {
     '& .name': {
       display: 'none',
@@ -36,7 +36,7 @@ const MenuContainer = styled('nav')({
     '&.menuList': {
       top: '70px',
       bottom: 'unset',
-      backgroundColor: 'rgba(5,5,5,0.8)',
+      backgroundColor: 'rgba(255, 255, 255, 0.51)',
       '& li': {
         flexGrow: 'unset',
         minWidth: '140px',
@@ -90,10 +90,10 @@ const NevList = styled('ul')({
       justifyContent: 'center',
       width: '100%',
       height: '100%',
-      color: '#fff',
+      color: '#7563acff',
       textDecoration: 'none',
       '&.active': {
-        backgroundColor: 'rgba(91,147,213,0.8)',
+        backgroundColor: '#86B4EB',
       },
     },
   },

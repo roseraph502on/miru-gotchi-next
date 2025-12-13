@@ -9,7 +9,9 @@ import { useTodayLogStatus } from '@/hooks/useTodayLogStatus';
 import ContentTitle from '../main/ContentTitle';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditNoteIcon from '@mui/icons-material/EditNote';
-import { Box, Button, Grid, styled } from '@mui/material';
+import { Box, Button, styled } from '@mui/material';
+import Grid from '@mui/material/Grid';
+import type { GridProps } from '@mui/material/Grid';
 import { useState } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 
@@ -36,18 +38,21 @@ const HabitDetailBox = styled(Box)({
     padding: 0,
   },
   '@media (max-width: 1000px)': {
-    height: '100vh',
+    // avoid forcing viewport height that can cause overflow
+    minHeight: 'auto',
   },
   '@media (max-width: 600px)': {
     borderRadius: 'unset',
-    // paddingBottom: 0,
-
-    margin: '0 -20px -16px',
+    // avoid negative margin, which causes horizontal overflow
+    margin: '0 0 -16px',
     '& .unitBox': {
       right: '10px',
       top: '15px',
     },
   },
+  boxSizing: 'border-box',
+  maxWidth: '100%',
+  overflowX: 'hidden',
 });
 
 const HabitDetailTitle = styled(Grid)({
@@ -62,6 +67,8 @@ const EditBtn = styled('button')({
   alignItems: 'center',
   justifyContent: 'center',
   background: 'none',
+  border: 'none',
+  outline: 'none',
   fontFamily: 'fontGalmuri',
   fontSize: '12px',
   color: 'rgb(121 121 121 / 68%)',
@@ -98,38 +105,46 @@ const EditBtn = styled('button')({
       },
     },
   },
+  '&:focus': {
+    outline: 'none',
+    boxShadow: 'none',
+  },
 });
 
-const HabitContainBox = styled(Grid)({
+const HabitContainBox = styled('div')({
   width: '100%',
   flexGrow: 1,
   display: 'flex',
+  flexWrap: 'wrap',
   gap: 10,
 });
-const CharacterGrid = styled(Grid)({
+const CharacterGrid = styled(Box)({
   width: '100%',
   flexGrow: 1,
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  // padding: "25px 0 30px",
 });
 const CharBox = styled(Box)({
-  width: '60%',
+  // allow flexible shrinking and avoid imposing min widths that cause overflow
+  flex: '0 1 60%',
   aspectRatio: '1/1.14',
   display: 'flex',
   justifyContent: 'center',
   maxWidth: '450px',
-  minWidth: '200px',
-  '@media (max-width: 600px)': { maxWidth: '230px' },
+  minWidth: 0,
   '@media (max-width: 1279px)': { maxWidth: '400px' },
+  '@media (max-width: 600px)': { flexBasis: '100%', maxWidth: '100%' },
 });
-const HabitContSecGrid = styled(Grid)({
+const HabitContSecGrid = styled(Box)({
   width: '100%',
   gap: 10,
   display: 'flex',
   flexGrow: 1,
   flexDirection: 'column',
+  minWidth: 0,
+  flex: '1 1 40%',
+  '@media (max-width: 600px)': { flexBasis: '100%' },
 });
 
 const HabitDescBox = styled(Box)({
@@ -259,8 +274,8 @@ const HabitDetailPage = () => {
           )}
         </HabitDetailTitle>
 
-        <HabitContainBox container spacing={2}>
-          <CharacterGrid size={{ xs: 12, sm: 6 }}>
+        <HabitContainBox>
+          <CharacterGrid>
             <CharBox>
               <CharacterBox
                 successCount={data.successCount}
@@ -270,9 +285,9 @@ const HabitDetailPage = () => {
                 characterStatus={data.characterStatus}
               />
             </CharBox>
-          </CharacterGrid>
+            </CharacterGrid>
 
-          <HabitContSecGrid size={{ xs: 12, sm: 6 }}>
+          <HabitContSecGrid>
             {/* <InformHeadBox>
               목표기간 : {data?.startDate.toLocaleDateString()}~
               {data?.endDate.toLocaleDateString()}
@@ -293,7 +308,7 @@ const HabitDetailPage = () => {
                   ? `오늘의 (${data.title.slice(0, 10)}) 취소하기`
                   : `오늘의 (${data.title.slice(0, 10)}) 완료하기`}
             </HabitDoneBtn>
-          </HabitContSecGrid>
+            </HabitContSecGrid>
         </HabitContainBox>
       </HabitDetailBox>
 

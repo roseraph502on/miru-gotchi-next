@@ -11,10 +11,10 @@ const CustomSwitch = styled(Switch)(() => ({
       transform: 'translateX(39px)',
       color: '#fff',
       '& .MuiSwitch-thumb': {
-        backgroundColor: '#5B93D5',
+        backgroundColor: '#86B4EB',
       },
       '& + .MuiSwitch-track': {
-        backgroundColor: '#adc6e2',
+        backgroundColor: '#86b4ebe1',
       },
     },
     '& .MuiSwitch-thumb': {
