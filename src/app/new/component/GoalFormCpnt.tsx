@@ -5,6 +5,7 @@ import calendarIcon from '@/icon/interface-essential-calendar-appointment--Strea
 const GoalFormBox = styled(Grid)({
   width: '100%',
   height: 'auto',
+  maxHeight: '100%',
   borderRadius: '15px',
   backgroundColor: '#5B93D595',
   padding: '20px',
@@ -15,7 +16,6 @@ const GoalFormBox = styled(Grid)({
   '@media (max-width: 600px)': { gap: 10, fontSize: '12px', padding: '15px 15px' },
 });
 
-// shouldForwardProp으로 disableUnderline이 DOM으로 전달되지 않도록 차단
 const TitleTextField = styled(TextField, {
   shouldForwardProp: (prop) => prop !== 'disableUnderline' && prop !== '$disableUnderline'
 })(() => ({

@@ -12,6 +12,7 @@ import titEgg from '@/assets/images/character/tit/tit-egg.png';
 const CharacterFormBox = styled(Grid)({
   width: '100%',
   height: 'auto',
+  maxHeight: '100%',
   borderRadius: '15px',
   backgroundColor: '#F2F2F3',
   padding: '10px',
@@ -53,15 +54,20 @@ const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
     borderLeft: `1px solid ${(theme.vars || theme).palette.action.disabledBackground}`,
   },
 }));
-const StyledToggleButton = styled(ToggleButton)({
-  // width: '15vh',
+const StyledToggleButton = styled(ToggleButton)(({ theme }) => ({
   width: '20%',
-  minWidth: "70px",
-  maxWidth: "100px",
-  aspectRatio: '1/1',
+  minWidth: "60px",
+  maxWidth: "90px",
+  boxSizing: 'border-box',
   backgroundColor: '#fff',
   border: "1px solid #ddd",
   boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.05)',
+  padding: '0 !important',
+  height: '100%',
+  aspectRatio: '1 / 1',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
   '&.Mui-selected': {
     backgroundColor: '#5B93D530',
     border: '2px solid #5B93D5',
@@ -71,7 +77,7 @@ const StyledToggleButton = styled(ToggleButton)({
     maxWidth: "120px" 
   },
   '@media (min-width: 601px) and (max-width: 1000px)': { maxWidth: "90px" },
-});
+}));
 const EggGrid = styled(Grid)({
   width: '100%',
   display: 'flex',

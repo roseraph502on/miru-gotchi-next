@@ -12,6 +12,8 @@ import { usePathname } from 'next/navigation';
 
 const Wrap = styled.div`
   position: relative;
+  display: flex;
+  flex-direction: column;
   height: 100vh;
   max-width: 1280px;
   margin: 0 auto;
@@ -19,10 +21,11 @@ const Wrap = styled.div`
 `;
 
 const ContentArea = styled.main<{ $isLogin?: boolean }>`
-  padding: ${props => props.$isLogin ? '0' : '70px 20px'};
-  height: auto;
+  padding: ${props => props.$isLogin ? '0' : '70px 20px 50px 20px'};
+  flex: 1;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
   @media (min-width: 1280px) {
     padding: ${props => props.$isLogin ? '0' : '120px 0 0px'};
   }
